@@ -28,7 +28,7 @@ function Login() {
     
     async function submitLogin(values) {
         setIsLoading(true);
-        let { data } = await axios.post(`https://husky-willing-directly.ngrok-free.app/api/auth/login`, values).catch((err) => {
+        let { data } = await axios.post(`https://husky-willing-directly.ngrok-free.app/api/auth/login`, values, {headers:{'accept':'application/json'}}).catch((err) => {
                 setIsLoading(false)
                 setError(err.response.data.message)
             });

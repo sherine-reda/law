@@ -17,7 +17,7 @@ function Layout() {
   }, [])
   return<>
    <Navbar />
-   <div className={`mt-2 ${Lang=="Ar"?"Rtl":"Ltr"}`}>
+   <div className={` ${Lang=="Ar"?"Rtl":"Ltr"}`}>
    <Outlet />
 
    </div>

@@ -4,6 +4,8 @@ import logo from "../../Assets/logo.png";
 import { langContext } from "../../Context/LangContext";
 import i18next from "i18next";
 import { userContext } from "../../Context/UserContext";
+import $ from 'jquery';
+
 function Navbar() {
   // const [Lang, setLang] = useState("Ar")
   const { Lang, setLang } = useContext(langContext);
@@ -19,6 +21,19 @@ function Navbar() {
 
     // navigate("/login");
   }
+  $(document).ready(function(){
+    $(window).scroll(function(){
+      var scroll = $(window).scrollTop();
+      if (scroll > 200) {
+        $("nav").css("background" , "rgba(255, 255, 255, 0.9)");
+      }
+
+      else{
+        $("nav").css("background" , "transparent");  	
+      }
+    })
+  })
+ 
   //  function handleScroll(id){
   //   const item = ReactDOM.findDOMNode(this.refs[id]);
   //   window.scrollTo(item.offsetTop);
@@ -30,7 +45,7 @@ function Navbar() {
   }
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-white fixed-top ">
+      <nav className="navbar navbar-expand-lg  fixed-top ">
         <div className="container flex-row-reverse  ">
           <Link className="navbar-brand w-25 ms-5   text-end" to="/">
             <img
@@ -174,36 +189,7 @@ function Navbar() {
               </li>
             </ul>
 
-            {/* <ul className="navbar-nav  mb-2 mb-lg-0 ms-auto align-items-center">
-              {userToken !== null ? (
-                <>
-                  
-                  <li className="nav-item">
-                    <Link
-                      onClick={() => {
-                        logout();
-                      }}
-                      className="nav-link cursor-pointer"
-                    >
-                      Logout
-                    </Link>
-                  </li>
-                </>
-              ) : (
-                <>
-                  <li className="nav-item">
-                    <NavLink className="nav-link rounded px-3" to="/login">
-                      Login
-                    </NavLink>
-                  </li>
-                  <li className="nav-item">
-                    <NavLink className="nav-link rounded px-3" to="/register">
-                      Register
-                    </NavLink>
-                  </li>
-                </>
-              )}
-            </ul> */}
+          
           </div>
         </div>
       </nav>

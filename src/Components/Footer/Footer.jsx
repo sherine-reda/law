@@ -1,9 +1,10 @@
+import i18next from 'i18next'
 import React from 'react'
 
 function Footer() {
   return <>
   <footer className=' p-5 my-5'>
-  <h2 className="title py-5 mb-5">شركاء العمل </h2>
+  <h2 className="title py-5 mb-5"> {i18next.t('Businesspartners')} </h2>
    <div className="container mt-5 pt-5 ">
     <div className="row gy-5 justify-content-center">
         <div className="col-md-3">

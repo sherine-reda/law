@@ -11,16 +11,20 @@ export const resources = {
       "OurProcess_t3":"Recieve Agreement",
       "Agreement":"Agreement Examples",
       "AgreementNav":"Agreement",
+      "services":"Agreement",
+      "chose":"chose",
       "About" : "About",
       "ContactUs":"Contact Us",
       "logout":"Logout",
-      "signin":"Signin", 
-      "signup":"Signup", 
+      "signin":"Log in", 
+      "signup":"Sign up", 
       "FullName":"Full Name",
       "email":"Email",
       "password":"Password",
       "password-confirmation":"Password-confirmation",
-      "phone" :"Phone"
+      "phone" :"Phone",
+      "BuyAgreement":"Buy Agreement",
+      "Businesspartners":"Business Partners"
     }
   },
   ar:{
@@ -34,6 +38,8 @@ export const resources = {
       "OurProcess_t3":"استلام الاتفاقية",
       "Agreement":"صيغ الاتفاقات",
       "AgreementNav":"الاتفاقيات",
+      "services":"الاتفاقية",
+      "chose":"اختر",
       "About":"من نحن",
       "ContactUs":"تواصل معنا",
       "logout":"تسجيل خروج",
@@ -43,7 +49,9 @@ export const resources = {
       "email":"البريد الالكتروني",
       "password":"كلمة المرور",
       "password-confirmation":"تأكيد كلمة المرور",
-      "phone" :"رقم الجوال"
+      "phone" :"رقم الجوال",
+      "BuyAgreement" : "شراء الاتفاقية" ,
+      "Businesspartners" :"شركاء العمل"
     }
   }
         

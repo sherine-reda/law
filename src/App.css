@@ -32,18 +32,47 @@ text-align: center;
 
 
 }
+/* selsec */
+
+#ArForm .dropdown-toggle::after {
+ 
+  position: absolute;
+  left: 10px;
+  top: 50%;
+}
+
+#ArForm .dropdown-toggle{
+  position: relative;
+    text-align: right;
+}
+#ArForm .dropdown-menu{
+  width: 100%;
+  border-radius:30px ;
+  border-color: #A8917D;
+  -webkit-border-radius:30px ;
+  -moz-border-radius:30px ;
+  -ms-border-radius:30px ;
+  -o-border-radius:30px ;
+  padding: 20px;
+}
+.btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active{
+  border-color: #A8917D;
+}
+
+
+/* /////////////////// */
 .btn-outline-main{
   --bs-btn-color: #AB9881;
-  --bs-btn-border-color: #E6C587
+  --bs-btn-border-color: #E6C587 
   ;
   --bs-btn-hover-color:#FFFFFF
   ;
   --bs-btn-hover-bg: #E6C587;
-  --bs-btn-hover-border-color: #E6C587;
+  --bs-btn-hover-border-color: #E6C587 ;
   --bs-btn-focus-shadow-rgb: 248, 249, 250;
   --bs-btn-active-color: #000;
   --bs-btn-active-bg: #f8f9fa;
-  --bs-btn-active-border-color: #f8f9fa;
+  --bs-btn-active-border-color: #E6C587;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #f8f9fa;
   --bs-btn-disabled-bg: transparent;
@@ -115,7 +144,14 @@ text-align: center;
   color: #CC8F1A
   ;
 }
-
+/* nav */
+nav{
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+}
 /* Header */
 #home{
   background:linear-gradient(rgba(44, 42, 27, 0.8),rgba(44, 42, 27, 0.8)),url(./Assets/header.jfif);
@@ -257,4 +293,36 @@ option {
 /* responsibilities */
 .responsibilitiesTag{
   background-color: #A8917D;
+}
+
+
+/* Style the dropdown items */
+.select-items div {
+  padding: 10px;
+  cursor: pointer;
+}
+
+
+/* modal */
+div:where(.swal2-container) .swal2-html-container {
+  text-align: end !important;
+  /* direction: ltr; */
+}
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+  border: 0;
+  border-radius: .25em;
+  background: initial;
+  background-color: #B1A79E !important;
+  color: #fff;
+  font-size: 1em;
+}
+ table{
+  width: 100%;
+  margin: auto;
+}
+table tr{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  /* d-flex justify-content-between bg-danger w-100 */
 }

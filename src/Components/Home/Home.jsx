@@ -1,49 +1,43 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AgreementForm from "../AgreementForm/AgreementForm";
 import Footer from "../Footer/Footer";
 import { langContext } from "../../Context/LangContext";
 // import { resources } from "../../language/Lang";
-import i18next from "i18next";
+import i18next, { use } from "i18next";
 import axios from "axios";
 function Home() {
   const { Lang, setLang } = useContext(langContext);
+  const [servicesData, setServicesData ] = useState([]);
+  const [IdServ, setIdServ ] = useState(null);
+  // const { Loading, setLoading } = useState(false);
   // console.log(Lang.toLowerCase());
   async function services(){
-    let config = {
-      method: 'get',
-      maxBodyLength: Infinity,
-      url: 'https://e454-105-36-145-36.ngrok-free.app/api/services?lang=en',
-      headers: { 
-        'Accept': 'application/json'
-      }
-    };
-    
+    // setLoading(true)
+    console.log("services")
+     let url = `http://192.168.1.108/api/services?lang=${Lang.toLowerCase()}`
+    let {data} = await axios.get(url,{
+      headers:{'accept':'application/json'}
+    })
+    setServicesData(data.services)
+    console.log(url);
+    console.log(data);
 
-axios.request(config)
-.then((response) => {
-  console.log(response.data);
-})
-.catch((error) => {
-  console.log(error);
-});
-    // let url = `https://husky-willing-directly.ngrok-free.app/api/services?lang=en`
-    // let {data} = await axios.get(url,{
-    //   headers:{'accept':'application/json'}
-    // })
-    // console.log(url);
-    // console.log(data);
+  }
+  function sendID(id){
+    setIdServ(id)
   }
   useEffect(() => {
     services()
-  }, [])
+  }, [Lang])
   
   // console.log(Lang);
   return (
     <>
+    {console.log("renddeeer")}
       <header
         id="home"
-        className="mt-lg-5 d-flex justify-content-center align-items-center"
+        className=" d-flex justify-content-center align-items-center"
       >
         <div>
           <h1> {i18next.t('header')}</h1>
@@ -54,7 +48,7 @@ axios.request(config)
         </div>
       </header>
       {/* طريقة العمل */}
-      <section id="HowWork" className="my-5">
+      <section id="HowWork" className="">
         <div className="container text-center py-5  mb-5 ">
           <h2 className="pb-5 title"> {i18next.t('OurProcess')}</h2>
           {/* className="row mt-5" */}
@@ -137,10 +131,21 @@ axios.request(config)
       {/* الاتفاقية */}
       <section id="theAgreement" className="my-5 py-5 bg-gray">
         <div className="container text-center py-5">
-          <h2 className=" title">الاتفاقية </h2>
-          <p>اختر الاتفاقية</p>
+          <h2 className=" title">{i18next.t('services')} </h2>
+          <p>{i18next.t('chose')} {i18next.t('services')} </p>
           <div className="row g-lg-5 gy-5 my-5">
-            <div className="col-lg-4 col-md-6">
+            {console.log(servicesData)}
+           
+              {servicesData?.map((ele,i)=>  <Link className="col-lg-4 col-md-6" key={i} onClick={()=>sendID(ele.id)}>
+             
+              <div className="item w-100 h-100">
+                <div  className="btn btn-outline-gray rounded-pill w-100 h-100"><h5>{ele.name}</h5> <span>{ele.description}</span></div>
+               
+              </div>
+            </Link>)}
+          
+         
+            {/* <div className="col-lg-4 col-md-6">
               <div className="item ">
                 <Link href="#" className="btn btn-outline-gray rounded-pill">الشروط والأحكام <br /><span>حماية لأعمالك وخدماتك</span></Link>
               </div>
@@ -169,10 +174,11 @@ axios.request(config)
               <div className="item ">
                 <Link href="#" className="btn btn-outline-gray rounded-pill">الشروط والأحكام <br /><span>حماية لأعمالك وخدماتك</span></Link>
               </div>
-            </div>
+            </div> */}
+               
           </div>
         </div>
-        <AgreementForm />
+       {IdServ?<AgreementForm Id={IdServ}/>:null}
       </section>
 
       <Footer />

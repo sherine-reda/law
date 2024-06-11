@@ -10,7 +10,7 @@ import Profile from './Components/Profile/Profile';
 import UserContextProvider from './Context/UserContext';
 let router = createBrowserRouter([
   {path:"/",element:<Layout />,children:[
-    {index:true,element:<Home />},
+    {path:"/",element:<Home />},
     {path:"login",element:<Login />},
     {path:"register",element:<Register />},
     {path:"profile",element:<Profile />},
